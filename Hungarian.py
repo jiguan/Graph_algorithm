@@ -7,7 +7,6 @@ match_edge={}
 node_weight={}
 free_vertex=[]
 
-
 def main():
    global tight_edge
    global match_edge
@@ -72,8 +71,6 @@ def init():
     				main()
 				exit()
 
-    
-            
 def find_tight():
     global free_vertex
     global edge_weight
@@ -110,8 +107,6 @@ def find_tight():
     print "start modify node value"
     return free_vertex
 
-
-
 def extend_path(node1, node2):
     global path_set
     global free_vertex
@@ -133,7 +128,6 @@ def extend_path(node1, node2):
            print "error in extend_path1"
            exit()
 
-
         for path_index in range(0, path_num):
            path=path_set[path_index]
            if matching_node in path:
@@ -154,7 +148,6 @@ def extend_path(node1, node2):
 	       if node_index == 0 or node_index == len(path)-1:
 	 	  del path
 	       
-
     else: #  (node1 not in free_vertex) and (node2 not in free_vertex):
         for path_index in range(0,path_num):
  	    path=path_set[path_index]
@@ -191,8 +184,6 @@ def extend_path(node1, node2):
                path_set.append(tmp_path)
                find_augmenting(tmp_path)
 
-
-	       
 def find_augmenting(path):
     global match_edge
     global free_vertex
@@ -222,12 +213,8 @@ def find_augmenting(path):
                 	new_free_node=match_edge[even_node]
                   	free_vertex.append(new_free_node)
 
-  
-
-               
     return match_edge,free_vertex
 
- 
 def modify_free_node():
     print 'modify_free_node'
     global free_vertex
@@ -269,21 +256,13 @@ def modify_free_node():
                             visited_node.append(element)
 
                             node_weight[element]+= 1
-                    
-                   
+                  
               print "after modify, check tight again"
               free_vertex=find_tight() 
            elif node_weight[free_node]==0:  
                print 'free node {0} is not qualify for modify with weight {1}'.format(free_node, node_weight[free_node])
                print 'free vertex set', free_vertex
     return free_vertex 
-
-
-    
-
-
-
-
 
 
 if __name__ == "__main__":
